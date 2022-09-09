@@ -7,18 +7,6 @@ import (
 	"strings"
 )
 
-func Group(region, group string) string {
-	return fmt.Sprintf(
-		"https://console.aws.amazon.com/cloudwatch/home?region=%s#logsV2:log-groups/log-group/%s",
-		region,
-		FragmentEscape(group),
-	)
-}
-
-func Stream(region, group, stream string) string {
-	return ""
-}
-
 var unescape = strings.NewReplacer(
 	"+", "%20",
 	"%21", "!",
