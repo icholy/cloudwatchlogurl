@@ -18,7 +18,7 @@ func GroupURL(region, group string) string {
 // StreamURL returns a url for the provided region, log group, and stream name.
 func StreamURL(region, group, stream string) string {
 	return fmt.Sprintf(
-		"https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=%s#logsV2:log-groups/log-group/%s/log-events/%s",
+		"https://console.aws.amazon.com/cloudwatch/home?region=%s#logsV2:log-groups/log-group/%s/log-events/%s",
 		region,
 		FragmentEscape(group),
 		FragmentEscape(stream),
