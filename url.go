@@ -1,4 +1,4 @@
-package cloudwatchurl
+package cloudwatchlogurl
 
 import (
 	"fmt"
