@@ -6,10 +6,13 @@ import (
 	"time"
 )
 
+const baseURL = "https://console.aws.amazon.com/cloudwatch/home"
+
 // GroupURL returns a url for the provided region and log group
 func GroupURL(region, group string) string {
 	return fmt.Sprintf(
-		"https://console.aws.amazon.com/cloudwatch/home?region=%s#logsV2:log-groups/log-group/%s",
+		"%s?region=%s#logsV2:log-groups/log-group/%s",
+		baseURL,
 		region,
 		FragmentEscape(group),
 	)
@@ -18,7 +21,8 @@ func GroupURL(region, group string) string {
 // StreamURL returns a url for the provided region, log group, and stream name.
 func StreamURL(region, group, stream string) string {
 	return fmt.Sprintf(
-		"https://console.aws.amazon.com/cloudwatch/home?region=%s#logsV2:log-groups/log-group/%s/log-events/%s",
+		"%s?region=%s#logsV2:log-groups/log-group/%s/log-events/%s",
+		baseURL,
 		region,
 		FragmentEscape(group),
 		FragmentEscape(stream),
@@ -51,7 +55,8 @@ func InsightsURL(region string, opt InsightsOptions) string {
 		query.Add("isLiveTrail", "true", false)
 	}
 	return fmt.Sprintf(
-		"https://console.aws.amazon.com/cloudwatch/home?region=%s#logsV2:logs-insights%s",
+		"%s?region=%s#logsV2:logs-insights%s",
+		baseURL,
 		region,
 		query.Encode(),
 	)
